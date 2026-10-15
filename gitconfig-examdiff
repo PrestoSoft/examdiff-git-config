@@ -1,0 +1,20 @@
+# ExamDiff Pro as the Git diff and merge tool.
+# Copy into ~/.gitconfig, or: git config --global include.path "C:/path/to/gitconfig-examdiff"
+# Change the path below if ExamDiff Pro is installed elsewhere.
+
+[diff]
+    tool = edp
+    guitool = edp
+[difftool]
+    prompt = false
+[difftool "edp"]
+    cmd = \"C:\\Program Files\\ExamDiff Pro\\ExamDiff.exe\" \"$LOCAL\" \"$REMOTE\" -nh
+
+[merge]
+    tool = edp
+[mergetool]
+    prompt = false
+    keepBackup = false
+[mergetool "edp"]
+    cmd = \"C:\\Program Files\\ExamDiff Pro\\ExamDiff.exe\" -merge \"$REMOTE\" \"$BASE\" \"$LOCAL\" -o:\"$MERGED\" -dn1:\"Theirs\" -dn2:\"Base\" -dn3:\"Yours\" -dno:\"Output\" -nh
+    trustExitCode = false
